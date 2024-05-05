@@ -2,7 +2,7 @@ FROM python:3.8-slim
 
 WORKDIR /app
 
-#RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git
 RUN git clone https://github.com/G36maid/sentiment_analysis_by_bert.git
 
 WORKDIR /app/sentiment_analysis_by_bert
