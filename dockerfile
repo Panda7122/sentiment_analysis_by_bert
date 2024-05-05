@@ -1,17 +1,17 @@
-FROM python:3.8-slim
+FROM python:3.9
 
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y git
-RUN git clone https://github.com/G36maid/sentiment_analysis_by_bert.git
 
-WORKDIR /app/sentiment_analysis_by_bert
+COPY requirements.txt /app
 
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-COPY loadBert.py /app/sentiment_analysis_by_bert
-COPY simplebert.py /app/sentiment_analysis_by_bert
-COPY TrainOurBert.py /app/sentiment_analysis_by_bert
+COPY loadBert.py /app
+COPY simplebert.py /app
+COPY TrainOurBert.py /app
 
-CMD ["python", "TrainOurBert.py"]
+#CMD ["python", "TrainOurBert.py"]
+ENTRYPOINT ["python", "TrainOurBert.py"]
