@@ -14,10 +14,12 @@ In this file we try to fine-tune a simple model that can determin positive and n
 import torch
 import pandas as pd
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
-from datasets import load_dataset
+from datasets import load_dataset, DatasetDict, Dataset
 from sklearn.model_selection import train_test_split
 
-
+import random
+seed = random.randrange(1,10000)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load the dataset
 dataset = load_dataset("SetFit/tweet_sentiment_extraction")
@@ -36,7 +38,7 @@ def splitDataset(ds:DatasetDict, sz:float)->DatasetDict:
     return DatasetDict({'train':Dataset.from_pandas(train), 'test':Dataset.from_pandas(test)}) 
 
 
-dataset = splitDataset(dataset, 0.5)
+#dataset = splitDataset(dataset, 1.0)
 
 # Tokenization
 def tokenize_function(examples):
@@ -45,7 +47,7 @@ def tokenize_function(examples):
 tokenized_datasets = dataset.map(tokenize_function, batched=True)
 
 #since there are three labe: positive,negative,neutral the num_labels is 3
-model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=3)
+model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=3).to(device)
 
 #!pip install accelerate -U
 #!pip install transformers[torch]
@@ -82,6 +84,7 @@ except:
 # User text input for testing
 user_input = input("Enter a tweet to analyze sentiment: ")
 encoded_input = tokenizer(user_input, return_tensors='pt', padding=True, truncation=True)
+encoded_input = encoded_input.to(device) 
 output = model(**encoded_input)
 probabilities = torch.nn.functional.softmax(output.logits, dim=-1)
 predicted_sentiment = probabilities.argmax(-1).item()
