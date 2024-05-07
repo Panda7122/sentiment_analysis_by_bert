@@ -36,7 +36,7 @@ def splitDataset(ds:DatasetDict, sz:float)->DatasetDict:
     return DatasetDict({'train':Dataset.from_pandas(train), 'test':Dataset.from_pandas(test)}) 
 
 
-dataset = splitDataset(dataset, 0.333)
+dataset = splitDataset(dataset, 0.5)
 
 # Tokenization
 def tokenize_function(examples):
@@ -55,8 +55,8 @@ training_args = TrainingArguments(
     output_dir="./results",
     evaluation_strategy="epoch",
     learning_rate=2e-5,
-    per_device_train_batch_size=8,  # Reduced batch size
-    per_device_eval_batch_size=8,  # Reduced batch size
+    per_device_train_batch_size=6,  # Reduced batch size
+    per_device_eval_batch_size=6,  # Reduced batch size
     gradient_accumulation_steps=2,  # Accumulate gradients over 2 steps
     num_train_epochs=3,
     weight_decay=0.01,
@@ -74,7 +74,11 @@ trainer = Trainer(
 
 # Train the model
 trainer.train()
-
+try:
+    model.save_pretrained('./saved_model')
+    tokenizer.save_pretrained('./saved_model')
+except:
+    print('fail to save model')
 # User text input for testing
 user_input = input("Enter a tweet to analyze sentiment: ")
 encoded_input = tokenizer(user_input, return_tensors='pt', padding=True, truncation=True)
