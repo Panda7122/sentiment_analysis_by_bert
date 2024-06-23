@@ -1,0 +1,63 @@
+Text: Happy Valentine’s Day! You look absolutely stunning tonight,daring.
+  Predicted Emotion: joy, Probability: 0.9918
+  Predicted Emotion: surprise, Probability: 0.0068
+Text: Thank you! You’re looking quite handsome yourself. Happy Valentine’s Day! I’ve been looking forward to this all week.
+  Predicted Emotion: joy, Probability: 0.9992
+  Predicted Emotion: love, Probability: 0.0003
+Text: Me too. I’ve got a little surprise planned for us later, but first, how about we start with a toast?
+  Predicted Emotion: joy, Probability: 0.9886
+  Predicted Emotion: love, Probability: 0.0036
+Text: Ooh, a surprise! You know how much I love surprises. What are we toasting to?
+  Predicted Emotion: joy, Probability: 0.9911
+  Predicted Emotion: surprise, Probability: 0.0059
+Text: To us, and to all the wonderful moments we’ve shared. Here’s to many more.
+  Predicted Emotion: joy, Probability: 0.9982
+  Predicted Emotion: love, Probability: 0.0008
+Text: Cheers to that! You always know how to make me feel special.
+  Predicted Emotion: joy, Probability: 0.9977
+  Predicted Emotion: surprise, Probability: 0.0016
+Text: That’s because you are special. I’ve got something for you. *hands over a small gift box*
+  Predicted Emotion: joy, Probability: 0.9955
+  Predicted Emotion: love, Probability: 0.0026
+Text: Oh, you didn’t have to! What’s this? *opens the box* Wow, it’s beautiful! A necklace with our initials. I love it.
+  Predicted Emotion: joy, Probability: 0.9910
+  Predicted Emotion: surprise, Probability: 0.0056
+Text: I’m glad you like it. I wanted to give you something that would remind you of us, every day.
+  Predicted Emotion: joy, Probability: 0.9917
+  Predicted Emotion: love, Probability: 0.0048
+Text: It’s perfect. Thank you so much. You really are the best. I have something for you too. *hands over a small wrapped gift*
+  Predicted Emotion: joy, Probability: 0.9911
+  Predicted Emotion: love, Probability: 0.0074
+Text: What’s this? *unwraps the gift* A watch! And it has a little engraving on the back. “Forever and always.” It’s perfect. Thank you.
+  Predicted Emotion: joy, Probability: 0.9984
+  Predicted Emotion: love, Probability: 0.0007
+Text: I’m so happy you like it. I wanted to give you something that you could wear and think of me.
+  Predicted Emotion: joy, Probability: 0.9829
+  Predicted Emotion: love, Probability: 0.0127
+Text: I will, every time I check the time. This has been such a wonderful night already. And we’ve only just started.
+  Predicted Emotion: joy, Probability: 0.9980
+  Predicted Emotion: surprise, Probability: 0.0012
+Text: Agreed. I’m so grateful to have you in my life. Here’s to many more Valentine’s Days together.
+  Predicted Emotion: joy, Probability: 0.9911
+  Predicted Emotion: love, Probability: 0.0081
+Text: Here’s to us. Forever and always.
+  Predicted Emotion: joy, Probability: 0.8887
+  Predicted Emotion: sadness, Probability: 0.0650
+Text: It's interesting how some people choose to prioritize their own convenience over reliability.
+  Predicted Emotion: joy, Probability: 0.8918
+  Predicted Emotion: surprise, Probability: 0.0878
+Text: I guess not everyone values punctuality.
+  Predicted Emotion: anger, Probability: 0.3905
+  Predicted Emotion: joy, Probability: 0.2924
+Text: It's surprising how little effort some people put into their work.
+  Predicted Emotion: joy, Probability: 0.3776
+  Predicted Emotion: surprise, Probability: 0.3105
+Text: It must be nice to have such flexible standards.
+  Predicted Emotion: joy, Probability: 0.9906
+  Predicted Emotion: anger, Probability: 0.0034
+Text: It has been raining for two weeks,our trip has to be canceled
+  Predicted Emotion: sadness, Probability: 0.8296
+  Predicted Emotion: anger, Probability: 0.0959
+Text: It seems like the model is suck
+  Predicted Emotion: sadness, Probability: 0.3952
+  Predicted Emotion: anger, Probability: 0.2467
