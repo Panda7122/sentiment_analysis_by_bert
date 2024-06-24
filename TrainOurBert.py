@@ -17,6 +17,18 @@ def compute_metrics(pred):
 def tokenize(batch):
     return tokenizer(batch["text"], padding=True, truncation=True)
 
+def splitData(df:pd.DataFrame, sz:float)->pd.DataFrame:
+    x = df[df.columns[:2]]
+    y = df[df.columns[2:4]]
+    x_train, x_traindrop, y_train, y_traindrop = train_test_split(x, y, train_size=sz, random_state=seed)
+    return pd.concat([x_train,y_train],axis=1)
+def splitDataset(ds:DatasetDict, sz:float)->DatasetDict:
+    train = pd.DataFrame(dataset['train'])
+    test = pd.DataFrame(dataset['test'])
+    train = splitData(train, sz)
+    test = splitData(test, sz)
+    return DatasetDict({'train':Dataset.from_pandas(train), 'test':Dataset.from_pandas(test)}) 
+
 emotions = load_dataset("emotion")
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

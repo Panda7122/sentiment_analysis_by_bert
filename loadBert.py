@@ -26,12 +26,12 @@ def predict_emotion(text):
     predicted_class_id = predictions.argmax().item()
 
     # Map the class id to the label
-    labels = ['sadness', 'joy', 'love', 'anger', 'fear', 'surprise']
+    labels = ['joy', 'neutral', 'sadness', 'anger', 'fear', 'love', 'surprise']
     predicted_class = labels[predicted_class_id]
 
     return predicted_class
 
 # Example usage
-text = input("Enter a text: ")
-emotion = predict_emotion(text)
-print(f"The predicted emotion is: {emotion}")
+#text = input("Enter a text: ")
+#emotion = predict_emotion(text)
+#print(f"The predicted emotion is: {emotion}")
