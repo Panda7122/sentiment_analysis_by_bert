@@ -9,7 +9,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
-TARGET_CHANNEL_ID = 0
+TARGET_CHANNEL_ID =00000000 #changeme
 
 @client.event
 async def on_ready():
