@@ -21,7 +21,7 @@ def predict_emotion(texts):
         outputs = model(**inputs)
     probabilities = torch.nn.functional.softmax(outputs.logits, dim=-1)
     top2_prob, top2_indices = torch.topk(probabilities, 2, dim=1)
-    labels =  ['sadness', 'joy', 'love', 'anger', 'fear', 'surprise']
+    labels = ['joy', 'sadness', 'anger', 'fear', 'love', 'surprise']
     top2_choices = []
     for probs, indices in zip(top2_prob, top2_indices):
         choices = [(labels[idx], prob.item()) for prob, idx in zip(probs, indices)]
@@ -31,25 +31,6 @@ def predict_emotion(texts):
 # Example usage
 if __name__ == "__main__":
     """texts = [
-        "Emma: Hey, Alex! How's it going?",
-        "Alex: Oh, hey, Emma. It's going... you know, the usual.",
-        "Emma: That doesn't sound very enthusiastic. Everything okay?",
-        "Alex: Yeah, just feeling a bit off today. Work's been pretty overwhelming lately.",
-        "Emma: I'm sorry to hear that. Anything specific bothering you, or is it just the workload?",
-        "Alex: It's mostly the workload. And maybe a bit of feeling like I'm not doing enough, even when I'm working so hard.",
-        "Emma: I totally get that. It can be really tough when you put in so much effort and still feel like it's not enough. Have you talked to anyone at work about it?",
-        "Alex: Not really. I don't want to come across as complaining or not capable.",
-        "Emma: I understand. But sometimes sharing your thoughts can actually show your commitment to doing a good job. Maybe they'd appreciate knowing how you're feeling.",
-        "Alex: Yeah, maybe you're right. I guess I'm just worried about how it might be perceived.",
-        "Emma: That's completely normal. Just remember, everyone has days where they feel like this. You're not alone in it.",
-        "Alex: Thanks, Emma. It really helps to hear that. Maybe I will bring it up next time there's a team meeting.",
-        "Emma: Good idea! And hey, if you ever need to vent or just talk, I'm here for you.",
-        "Alex: Thanks, I appreciate that a lot. How about you? How's everything on your end?",
-        "Emma: Oh, you know, the usual ups and downs. But overall, not too bad. Just trying to take things one day at a time.",
-        "Alex: Sounds like a good approach. Thanks again for listening. It means a lot.",
-        "Emma: Anytime, Alex. Hang in there. We'll get through this together."
-    ]"""
-    texts = [
         "Happy Valentine’s Day! You look absolutely stunning tonight,daring.",
         "Thank you! You’re looking quite handsome yourself. Happy Valentine’s Day! I’ve been looking forward to this all week.",
         "Me too. I’ve got a little surprise planned for us later, but first, how about we start with a toast?",
@@ -64,15 +45,35 @@ if __name__ == "__main__":
         "I’m so happy you like it. I wanted to give you something that you could wear and think of me.",
         "I will, every time I check the time. This has been such a wonderful night already. And we’ve only just started.",
         "Agreed. I’m so grateful to have you in my life. Here’s to many more Valentine’s Days together.",
-        "Here’s to us. Forever and always.",
-        "It's interesting how some people choose to prioritize their own convenience over reliability.",
-        "I guess not everyone values punctuality.",
-        "It's surprising how little effort some people put into their work.",
-        "It must be nice to have such flexible standards.",
-        "It has been raining for two weeks,our trip has to be canceled",
-        "It seems like the model is suck"
+        "Here’s to us. Forever and always."
+    ]"""
+    texts = [
+        "Oh great, another meeting that could have been an email.",
+        "I just love when my favorite show gets canceled after one season.",
+        "It's so wonderful when my computer decides to update right before a deadline.",
+        "Nothing makes me happier than being stuck in traffic for hours.",
+        "I absolutely adore it when people cancel plans at the last minute.",
+        "It's fantastic how my phone battery always dies at the most convenient times.",
+        "I really enjoy it when the weather forecast is completely wrong.",
+        "I love it when my alarm clock fails to go off on the most important day.",
+        "It's so nice how my internet always slows down when I need it the most.",
+        "I just love it when my umbrella breaks in the middle of a storm.",
+        "I will date will my crush this weekend",
+        "I will go on a date whis weekend",
+        "I just got my bachelor degree, I will apply for a job tomorrow",
+        "When he saw his brother appear at his wedding ceremony, he ran out of his mind",
+        "It seems like the model is sock.",
+        "fuck you",
+        "I hate this world",
+        "that war is terrible",
+        "This is an apple",
+        "This is a banana",
+        "I like to eat apple",
+        "I am not happy right now,don't bother me.",
+        "I am not happy right now.",
+        "I am happy.",
+        "I am so excited"
     ]
-
 
     predictions = predict_emotion(texts)
     for text, preds in zip(texts, predictions):
