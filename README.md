@@ -8,7 +8,7 @@ sentiment analysis by bert
 First, ensure you have Docker installed. Then, navigate to the directory containing the Dockerfile in your command line and run the following command to build the Docker image:
 
 ```
-docker build -t sentiment-analysis-bert .
+docker build -t --rm botname .
 ```
 
 ### Running the Docker Container
@@ -16,13 +16,13 @@ docker build -t sentiment-analysis-bert .
 Once the build is complete, you can use the following command to run the Docker container:
 
 ```
-docker run sentiment-analysis-bert
+docker run botname
 ```
 
 You can also mount a local directory into the container for file interaction within the container using the `-v` parameter:
 
 ```
-docker run -v /path/to/local/data:/app/data sentiment-analysis-bert
+docker run -v /path/to/local/data:/app/data botname
 ```
 
 ### Customizing Startup Commands

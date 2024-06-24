@@ -9,7 +9,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
-TARGET_CHANNEL_ID = 1242488085808414790
+TARGET_CHANNEL_ID = 0
 
 @client.event
 async def on_ready():
@@ -23,7 +23,7 @@ async def on_message(message: discord.Message) -> None:  # This event is called 
     if message.channel.id != TARGET_CHANNEL_ID:
         return
     
-    channel = client.get_channel("1242488085808414790")
+    channel = client.get_channel(TARGET_CHANNEL_ID)
     #emotion = loadBert.predict_emotion(message.content)
     #await message.channel.send(f'> {message.content}\n`{emotion}`')  # This is required to process commands
     emotion_predictions = loadBert.predict_emotion(message.content)
